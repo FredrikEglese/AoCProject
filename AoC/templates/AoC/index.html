@@ -7,5 +7,18 @@
             <p class="lead text-muted">Solutions to some of the AoC challenges for 2020. Written by <a href="https://www.github.com/FredrikEglese">Fredrik Eglese</a>.</p>  
         </div>
     </section>
+
+    <section>
+        {% if avaliable_solution_list %}
+            <ul>
+                {% for avaliable_solution in avaliable_solution_list %}
+                <li>{{ avaliable_solution }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No solutions are available.</p>
+        {% endif %}
+    </section>
+
 {% endblock %}
 
