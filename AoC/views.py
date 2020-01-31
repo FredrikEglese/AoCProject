@@ -6,7 +6,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return True
     
-class SolveView(generic.ListView):
+class SolveView(generic.DetailView):
     template_name = 'AoC/solve.html'
 
     def get_queryset(self):
