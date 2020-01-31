@@ -1,0 +1,3 @@
+*.pyc
+/polls.archive/
+db.sqlite3
