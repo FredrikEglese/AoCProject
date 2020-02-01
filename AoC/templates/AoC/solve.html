@@ -14,8 +14,12 @@
                     <label for="userInput">Task Input (As provided from AoC website):</label>
                     <textarea class="form-control" id="userInput" rows="10"></textarea>
                 </div>
-                
-                <button type="submit" value="Submit" class="btn btn-primary mb-2 btn-block">Solve</button>
+
+                <div>
+                    <a href="{% url 'AoC:result' question_id %}">
+                        <button type="button"  class="btn btn-block btn-primary mb-2">Solve</button>
+                    </a>
+                </div>
             </form> 
         </div>
         
