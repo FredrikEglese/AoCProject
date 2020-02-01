@@ -1,8 +1,25 @@
 {% extends 'AoC/base.html' %}
 
 {% block body %}
-    <section class="text-center">
-        <h1>Solution for Task: x</h1>
-    </section>
+
+    <container>
+
+        <section class="text-center">
+            <h1>Solution for Task: {{question_id}}</h1>
+        </section>
+
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label for="userInput">Task Input (As provided from AoC website)</label>
+                    <textarea class="form-control" id="userInput" rows="10"></textarea>
+                </div>
+                
+                <button type="submit" value="Submit" class="btn btn-primary mb-2 btn-block">Solve</button>
+            </form> 
+        </div>
+        
+    </container>
+    
 {% endblock %}
 

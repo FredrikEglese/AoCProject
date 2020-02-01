@@ -9,21 +9,24 @@
     </section>
 
     <section>
-        {% if avaliable_solution_list %}
+        {% if solution_files_list %}
 
             <div class="album py-5 bg-light">
                 <div class="container">
                     <div class="row">
 
-                    {% for avaliable_solution in avaliable_solution_list %}
+                    {% for avaliable_solution in solution_files_list %}
 
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
                             <div class="card-body">
-                                <p class="card-text"> {{ avaliable_solution }} - </p>
+                                <p class="card-text"> {{ avaliable_solution }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Solver</button>
+                                        <a href="{% url 'AoC:solve' avaliable_solution%}">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Solver</button>
+                                        </a>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -37,8 +40,10 @@
             </div>
                 
         {% else %}
-           
-            <h4 class="text-center">No solvers avaliable. Please check that Python files are in the correct directory.</h4>
+        
+            <container>
+                <h4 class="text-center">No solvers avaliable. Please check that Python files are in the correct directory.</h4>
+            </container>
         
         {% endif %}
     

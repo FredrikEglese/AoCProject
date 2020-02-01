@@ -4,6 +4,6 @@ from . import views
 app_name = 'AoC'
 
 urlpatterns = [
-    path('',                views.IndexView.as_view(), name = 'index'),
-    path('solve/<str:question_id>/', views.SolveView.as_view(), name = 'solve'),
+    path('', views.index, name = 'index'),
+    path('solve/<str:question_id>/', views.solve, name = 'solve'),
 ]
