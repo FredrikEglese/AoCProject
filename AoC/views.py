@@ -16,16 +16,18 @@ def index(request):
 
 def solve(request, question_id):
     context = {}
-    split_question_id = question_id.split("_")
 
-    context["question_title"] = "Day " + split_question_id[0] + " - Part " + split_question_id[1]
     context["question_id"] = question_id
+
+    context["question_title"] = (
+        "Day "      + question_id.split("_")[0] + 
+        " - Part "  + question_id.split("_")[1] )
 
     return render(request, "AoC/solve.html", context)
 
 def result(request, question_id, user_input):
     context = {}  
-      
+
     result_value = 12
     context["result_value"] = result_value
 
