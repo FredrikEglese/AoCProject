@@ -4,30 +4,30 @@ def getInputLine(inputFilePath):
   items = openFile.read()
   return(items[:-1].split(","))
 
-numbers = getInputLine("2_1.txt")
+def solve(input_numbers):
+  # getInputLine returns array of Strings
+  input_numbers = input_numbers.split(",")
+  numbers = [int(x) for x in input_numbers]
+  pointer = 0
 
-# getInputLine returns array of Strings
-numbers = [int(x) for x in numbers]
-pointer = 0
+  # Requirement of task to set some elements to predetermined values
+  numbers[1] = 12
+  numbers[2] = 2
 
-# Requirement of task to set some elements to predetermined values
-numbers[1] = 12
-numbers[2] = 2
+  while True:
+    if(numbers[pointer] == 1):
+      tempSum = numbers[numbers[pointer+1]] + numbers[numbers[pointer+2]]
+      numbers[numbers[pointer+3]] = tempSum
+      pointer += 4
+      continue
 
-while True:
-  if(numbers[pointer] == 1):
-    tempSum = numbers[numbers[pointer+1]] + numbers[numbers[pointer+2]]
-    numbers[numbers[pointer+3]] = tempSum
-    pointer += 4
-    continue
+    if(numbers[pointer] == 2):
+      tempSum = numbers[numbers[pointer+1]] * numbers[numbers[pointer+2]]
+      numbers[numbers[pointer+3]] = tempSum
+      pointer += 4
+      continue
 
-  if(numbers[pointer] == 2):
-    tempSum = numbers[numbers[pointer+1]] * numbers[numbers[pointer+2]]
-    numbers[numbers[pointer+3]] = tempSum
-    pointer += 4
-    continue
+    if(numbers[pointer] == 99):
+      break
 
-  if(numbers[pointer] == 99):
-    break
-
-print(numbers[0])
+  return(numbers[0])
