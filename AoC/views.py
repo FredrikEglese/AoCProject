@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import os
+import importlib.util
 
 def id_to_name(id):
     return (
@@ -24,6 +25,14 @@ def solve(request, question_id):
 
     context["question_id"] = question_id
     context["question_title"] = id_to_name(question_id)
+
+    try:
+        spec = importlib.util.spec_from_file_location("task", "AoC/solutions/task_" + question_id + ".py")
+        task = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(task)
+        context["hello"] = task.hello_world
+    except FileNotFoundError:
+        context["result_value"] = "No algorithm foun"
 
     return render(request, "AoC/solve.html", context)
 
