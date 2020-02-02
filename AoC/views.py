@@ -26,20 +26,18 @@ def solve(request, question_id):
     context["question_id"] = question_id
     context["question_title"] = id_to_name(question_id)
 
+    return render(request, "AoC/solve.html", context)
+
+def result(request, question_id):
+    context = {}  
+    context["question_title"] = id_to_name(question_id)
+
     try:
         spec = importlib.util.spec_from_file_location("task", "AoC/solutions/task_" + question_id + ".py")
         task = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(task)
-        context["hello"] = task.hello_world
-    except FileNotFoundError:
-        context["result_value"] = "No algorithm foun"
-
-    return render(request, "AoC/solve.html", context)
-
-def result(request, question_id):
-    result_value = 12
-    context = {}  
-    context["result_value"] = result_value
-    context["question_title"] = id_to_name(question_id)
+        # context["hello"] = task.hello_world
+    except Exception as e :
+        context["result_value"] = "There was an issue. " + str(e)
 
     return render(request, "AoC/result.html", context)
