@@ -9,16 +9,14 @@
         </section>
 
         <div class="container">
-            <form>
+            <form action="{% url 'AoC:result' question_id %}" method="POST"> {% csrf_token %}
                 <div class="form-group">
                     <label for="userInput">Task Input (As provided from AoC website):</label>
-                    <textarea class="form-control" id="userInput" rows="10"></textarea>
+                    <textarea class="form-control" name="task_input" rows="10"></textarea>
                 </div>
 
                 <div>
-                    <a href="{% url 'AoC:result' question_id %}">
-                        <button type="button"  class="btn btn-block btn-primary mb-2">Solve</button>
-                    </a>
+                    <input type="submit" value="Solve" class="btn btn-block btn-primary mb-2" />
                 </div>
             </form> 
         </div>
@@ -26,4 +24,3 @@
     </div>
     
 {% endblock %}
-

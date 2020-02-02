@@ -24,7 +24,7 @@ def solve(request, question_id):
     context = {}
 
     context["question_id"] = question_id
-    context["question_title"] = id_to_name(question_id)
+    context["question_title"] = id_to_name(question_id) 
 
     return render(request, "AoC/solve.html", context)
 
@@ -32,11 +32,15 @@ def result(request, question_id):
     context = {}  
     context["question_title"] = id_to_name(question_id)
 
+    input_string = request.POST.get('task_input')
+
     try:
         spec = importlib.util.spec_from_file_location("task", "AoC/solutions/task_" + question_id + ".py")
         task = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(task)
-        # context["hello"] = task.hello_world
+
+        context["result_value"] =  task.solve(input_string)
+            
     except Exception as e :
         context["result_value"] = "There was an issue. " + str(e)
 
