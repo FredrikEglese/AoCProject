@@ -1,5 +1,9 @@
-def solve(input_list):
+def solve(input_string):
   # input_list is a list of integers
+  input_list = []
+  for number in input_string.split():
+    input_list.append(int(number))
+
   numbers = input_list
   total = 0 
 
