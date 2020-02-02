@@ -12,7 +12,7 @@
             <form action="{% url 'AoC:result' question_id %}" method="POST"> {% csrf_token %}
                 <div class="form-group">
                     <label for="userInput">Task Input (As provided from AoC website):</label>
-                    <textarea class="form-control" name="task_input" rows="10"></textarea>
+                    <textarea class="form-control" name="input_textbox" rows="10"></textarea>
                 </div>
 
                 <div>
