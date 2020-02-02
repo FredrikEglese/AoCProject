@@ -20,9 +20,11 @@ def hasIncreasingValues(testValue):
             return False
     return True
 
-total = 0
-for number in range(138241,674034):
-    if hasAdjacentValues(number) and hasIncreasingValues(number):
-        total += 1
+def solve(input_string):
+    input_list = list(map(int, input_string.split("-")))
+    total = 0
+    for number in range(input_list[0],input_list[1]):
+        if hasAdjacentValues(number) and hasIncreasingValues(number):
+            total += 1
 
-print(total)
+    return(total)

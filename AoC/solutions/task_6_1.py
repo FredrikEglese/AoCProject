@@ -1,3 +1,7 @@
+# This code is very slow but it does work eventually
+
+all_pairings = []
+
 """ Return the number of orbits which the satelite is connected to
 
 This recursive function finds the number of direct and indirect orbits
@@ -18,21 +22,18 @@ def count_orbits(reference_pairing):
 There are two elements per list item. ID of object and
 the ID of its satelite it's paired with.
 """
-def return_task_input():
-    all_pairings = []
-    open_file = open("6_1.txt", "r")
-
-    for line in open_file:
+def return_task_input(user_input_list):
+    for line in user_input_list:
         # ) is used as the seperator per line between object and satelite
-        all_pairings.append(line.rstrip("\n").split(")")) 
+        all_pairings.append(line.split(")")) 
 
-    open_file.close()
     return all_pairings
 
-total = 0
-all_pairings = return_task_input()
-
-for connection in all_pairings:
-    total += count_orbits(connection)
+def solve(input_string):
+    total = 0
+    all_pairings = return_task_input(input_string.split())
     
-print(total)
+    for connection in all_pairings:
+        total += count_orbits(connection)
+        
+    return (total)
