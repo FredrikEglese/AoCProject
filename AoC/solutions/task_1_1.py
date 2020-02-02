@@ -9,5 +9,3 @@ def solve(input_list):
 
   return total
 
-def hello_world():
-  return("wagwan fam")
