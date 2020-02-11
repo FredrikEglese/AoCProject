@@ -29,6 +29,10 @@ def return_task_input(user_input_list):
 
     return all_pairings
 
+""" Returns an int solution to task 6 part 1
+
+input_string is the string as provided in the user form on solve page
+"""
 def solve(input_string):
     total = 0
     all_pairings = return_task_input(input_string.split())

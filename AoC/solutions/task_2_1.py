@@ -1,9 +1,16 @@
+""" Return a list of str from a single comma seperated 
+    row from a file
+"""
 def getInputLine(inputFilePath):
-  """ Return a list of str from a single comma seperated row from a file """
   openFile = open(inputFilePath,"r")
   items = openFile.read()
   return(items[:-1].split(","))
 
+""" Returns an int solution to task 2 part 1
+
+Context for solution for this task should be found on the task page on AoC
+input_string is the string as provided in the user form on solve page
+"""
 def solve(input_numbers):
   # getInputLine returns array of Strings
   input_numbers = input_numbers.split(",")

@@ -1,25 +1,27 @@
-def hasAdjacentValues(testValue):
-    """ 
-    Return True if there is at least a single set of
+""" Return True if there is at least a single set of
     neighbors with the same value 
-    """
+"""
+def hasAdjacentValues(testValue):
     testValue = str(testValue)
     for i in range(len(testValue) - 1):
         if (testValue[i] == testValue[i+1]):
             return True
     return False
 
-def hasIncreasingValues(testValue):
-    """ 
-    Return True if each consecutive value is
+""" Return True if each consecutive value is
     greater than or equal to the last
-    """
+"""
+def hasIncreasingValues(testValue):
     testValue = str(testValue)
     for i in range(len(testValue) - 1):
         if (testValue[i] > testValue[i+1]):
             return False
     return True
 
+""" Returns an int solution to task 4 part 1
+
+input_string is the string as provided in the user form on solve page
+"""
 def solve(input_string):
     input_list = list(map(int, input_string.split("-")))
     total = 0
